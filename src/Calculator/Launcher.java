@@ -24,7 +24,6 @@ public class Launcher {
 		JPanel panel2 = new JPanel();
 		JPanel tastenfeld = new JPanel();
 		JTextField anzeigeFeld = new JTextField(30);
-		JOptionPane option = new JOptionPane();
 		
 		JButton but1 = new JButton("1");
 		JButton but2 = new JButton("2");
@@ -59,7 +58,6 @@ public class Launcher {
 		
 		panel2.setBackground(Color.YELLOW);
 		panel2.add(anzeigeFeld);
-		panel2.add(option);
 		
 		tastenfeld.add(but1);
 		tastenfeld.add(but2);
