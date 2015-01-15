@@ -18,6 +18,7 @@ public class Launcher {
 		Controller controller = new Controller();
 		View view = new View();
 		view.controller = controller;
+		controller.view = view;
 		view.init();
 
 		
