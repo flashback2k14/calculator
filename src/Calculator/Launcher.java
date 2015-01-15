@@ -12,16 +12,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Launcher {
-
+	
 	public static void main(String[] args) {
 		
 		Controller c = new Controller();
+		View v = new View();
 		
 		JFrame frame = new JFrame();
 		JButton button1 = new JButton("Light/Dark");
 		JButton button2 = new JButton("About");
-		JPanel panel1 = new JPanel();
-		JPanel panel2 = new JPanel();
 		JPanel tastenfeld = new JPanel();
 		JTextField anzeigeFeld = new JTextField(30);
 		
@@ -40,19 +39,22 @@ public class Launcher {
 			
 		}
 		
-		frame.add(panel2, BorderLayout.NORTH);
-		frame.add(panel1, BorderLayout.SOUTH);
+		//Create Panels
+		v.init();
+		
+		frame.add(v.panel2, BorderLayout.NORTH);
+		frame.add(v.panel1, BorderLayout.SOUTH);
 		frame.add(tastenfeld, BorderLayout.CENTER);
 		
-		panel1.setBackground(Color.RED);
-		panel1.add(button1);
-		panel1.add(button2);
+		v.panel1.add(button1);
+		v.panel1.add(button2);
 		
 		button2.addActionListener(c);
 		button2.setActionCommand("about");
+		button1.addActionListener(c);
+		button1.setActionCommand("theme");
 		
-		panel2.setBackground(Color.YELLOW);
-		panel2.add(anzeigeFeld);
+		v.panel2.add(anzeigeFeld);
 		
 		frame.setTitle("Calculator");
 		frame.setSize(800, 600);
