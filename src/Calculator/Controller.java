@@ -5,6 +5,10 @@ import java.awt.event.ActionListener;
 
 public class Controller implements ActionListener{
 
+	public void init() {
+		
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -19,8 +23,11 @@ public class Controller implements ActionListener{
 			View view = new View();
 			view.changeTheme();
 			
+			// Click Counter
+		} else if (e.getActionCommand().equals("count")) {
+			
 		}
-		
+				
 	}
 
 }

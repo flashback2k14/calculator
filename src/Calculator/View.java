@@ -16,9 +16,9 @@ public class View {
 	
 	int id = 0;
 	
+	public Controller controller;
+	
 	public void init() {
-		
-		Controller c = new Controller();
 		
 		JFrame frame = new JFrame();
 		JButton button1 = new JButton("Light/Dark");
@@ -36,16 +36,19 @@ public class View {
 		for (int i = 0; i < labelBezeichnung.length; i++) {
 			
 			but[i] = new JButton(labelBezeichnung[i]);
-			but[i].addActionListener(c);
+			but[i].addActionListener(this.controller);
 			but[i].setActionCommand(labelBezeichnung[i]);
+			//but[i].setActionCommand("count");
 			tastenfeld.add(but[i]);
 		}
 		
 		// Button Action
-		button1.addActionListener(c);
+		button1.addActionListener(this.controller);
 		button1.setActionCommand("theme");
-		button2.addActionListener(c);
+		//button1.setActionCommand("count");
+		button2.addActionListener(this.controller);
 		button2.setActionCommand("about");
+		//button2.setActionCommand("count");
 		
 		// Create Panels
 		panel1 = new JPanel();

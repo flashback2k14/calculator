@@ -15,11 +15,11 @@ public class Launcher {
 	
 	public static void main(String[] args) {
 		
-		//Controller c = new Controller();
-		View v = new View();
-				
-		//Create Panels
-		v.init();
+		Controller controller = new Controller();
+		View view = new View();
+		view.controller = controller;
+		view.init();
+
 		
 		
 
