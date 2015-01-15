@@ -14,6 +14,7 @@ public class About {
 		aboutWindow.setModalExclusionType(null);
 		aboutWindow.setSize(100, 100);
 		aboutWindow.setTitle("About Calculator");
+		aboutWindow.setVisible(true);
 		
 	}
 	
