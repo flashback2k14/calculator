@@ -25,25 +25,20 @@ public class Launcher {
 		JPanel tastenfeld = new JPanel();
 		JTextField anzeigeFeld = new JTextField(30);
 		
-		JButton but1 = new JButton("1");
-		JButton but2 = new JButton("2");
-		JButton but3 = new JButton("3");
-		JButton but4 = new JButton("4");
-		JButton but5 = new JButton("5");
-		JButton but6 = new JButton("6");
-		JButton but7 = new JButton("7");
-		JButton but8 = new JButton("8");
-		JButton but9 = new JButton("9");
-		JButton but0 = new JButton("0");
-		JButton butresult = new JButton("=");
-		JButton butadd = new JButton("+");
-		JButton butsub = new JButton("-");
-		JButton butmul = new JButton("*");
-		JButton butdiv = new JButton("/");
-		JButton butreset = new JButton("Reset");
-		
 		GridLayout grid = new GridLayout(4,4);
 		tastenfeld.setLayout(grid);
+		
+		String[] labelBezeichnung = {"1", "2", "3", "+", "4", "5", "6", "-", "7", "8", "9", "*", "=", "0", "Reset", "/"};
+		JButton[] but = new JButton[labelBezeichnung.length];
+		
+		for (int i = 0; i < labelBezeichnung.length; i++) {
+			
+			but[i] = new JButton(labelBezeichnung[i]);
+			but[i].addActionListener(c);
+			but[i].setActionCommand(labelBezeichnung[i]);
+			tastenfeld.add(but[i]);
+			
+		}
 		
 		frame.add(panel2, BorderLayout.NORTH);
 		frame.add(panel1, BorderLayout.SOUTH);
@@ -58,23 +53,6 @@ public class Launcher {
 		
 		panel2.setBackground(Color.YELLOW);
 		panel2.add(anzeigeFeld);
-		
-		tastenfeld.add(but1);
-		tastenfeld.add(but2);
-		tastenfeld.add(but3);
-		tastenfeld.add(butadd);
-		tastenfeld.add(but4);
-		tastenfeld.add(but5);
-		tastenfeld.add(but6);
-		tastenfeld.add(butsub);
-		tastenfeld.add(but7);
-		tastenfeld.add(but8);
-		tastenfeld.add(but9);
-		tastenfeld.add(butmul);
-		tastenfeld.add(but0);
-		tastenfeld.add(butresult);
-		tastenfeld.add(butdiv);
-		tastenfeld.add(butreset);
 		
 		frame.setTitle("Calculator");
 		frame.setSize(800, 600);
