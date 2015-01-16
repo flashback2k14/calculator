@@ -1,29 +1,25 @@
 package Calculator;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
 public class Launcher {
 	
 	public static void main(String[] args) {
-		
+		/**
+		 * Init MVC Klassen
+		 */
 		Controller controller = new Controller();
 		View view = new View();
-		view.controller = controller;
-		controller.view = view;
+		Model model = new Model();
+		/**
+		 * Verbinde MVC Klassen miteinander
+		 */
+		view.setController(controller);
+		view.setModel(model);
+
+		controller.setView(view);
+		controller.setModel(model);
+		/**
+		 * Init Hauptfenster
+		 */
 		view.init();
-
-		
-		
-
 	}
-
 }
