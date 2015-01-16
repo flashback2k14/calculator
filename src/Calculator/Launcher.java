@@ -8,15 +8,19 @@ public class Launcher {
 		 */
 		Controller controller = new Controller();
 		View view = new View();
-		Model model = new Model();
+		CounterModel counterModel = new CounterModel();
+		VerlaufModel verlaufModel = new VerlaufModel();
+		Grundrechenarten grundrechenarten = new Grundrechenarten();
 		/**
 		 * Verbinde MVC Klassen miteinander
 		 */
 		view.setController(controller);
-		view.setModel(model);
+		view.setCounterModel(counterModel);
 
 		controller.setView(view);
-		controller.setModel(model);
+		controller.setCounterModel(counterModel);
+		controller.setVerlaufModel(verlaufModel);
+		controller.setGrundrechenarten(grundrechenarten);
 		/**
 		 * Init Hauptfenster
 		 */

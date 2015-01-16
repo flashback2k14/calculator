@@ -7,17 +7,17 @@ public class About extends JFrame {
 	/**
 	 * Attribute
 	 */
-	private Model model;
+	private CounterModel counterModel;
 
 	/**
 	 * Gtter / Setter
 	 */
-	public Model getModel() {
-		return model;
+	public CounterModel getCounterModel() {
+		return this.counterModel;
 	}
 
-	public void setModel(Model model) {
-		this.model = model;
+	public void setCounterModel(CounterModel counterModel) {
+		this.counterModel = counterModel;
 	}
 
 	/**
@@ -27,10 +27,14 @@ public class About extends JFrame {
 		/**
 		 * UI Elemente
 		 */
-		JLabel aboutText = new JLabel("CS13DR1");
+		JLabel aboutText = new JLabel("Created / Idea by CS13DR1");
 		add(aboutText);
+
+		JLabel aboutText2 = new JLabel("Forked by flashback2k14");
+		add(aboutText2);
+
 		JLabel btnCounter = new JLabel();
-		btnCounter.setText("Button Counter: " + getModel().getCounter());
+		btnCounter.setText("Button Counter: " + getCounterModel().getCounter());
 		add(btnCounter);
 		/**
 		 * Frame Settings

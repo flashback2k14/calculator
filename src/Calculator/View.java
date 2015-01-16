@@ -10,9 +10,12 @@ public class View extends JFrame {
 	private JPanel panel1;
 	private JPanel panel2;
 	private JTextField anzeigeFeld;
-	int id = 0;
+	private JLabel lblBtnCounter;
+	//
+	private int id = 0;
+	//
 	private Controller controller;
-	private Model model;
+	private CounterModel counterModel;
 
 	/**
 	 * Getter / Setter
@@ -25,12 +28,12 @@ public class View extends JFrame {
 		this.controller = controller;
 	}
 
-	public Model getModel() {
-		return model;
+	public CounterModel getCounterModel() {
+		return this.counterModel;
 	}
 
-	public void setModel(Model model) {
-		this.model = model;
+	public void setCounterModel(CounterModel counterModel) {
+		this.counterModel = counterModel;
 	}
 
 	/**
@@ -39,10 +42,17 @@ public class View extends JFrame {
 	public void init() {
 		JButton button1 = new JButton("Light/Dark");
 		JButton button2 = new JButton("About");
+		JButton button3 = new JButton("Verlauf");
 		JPanel tastenfeld = new JPanel();
+		//
 		anzeigeFeld = new JTextField(30);
-		
-		GridLayout grid = new GridLayout(4,4);
+		anzeigeFeld.setFocusable(false);
+		anzeigeFeld.setForeground(Color.BLACK);
+		//
+		lblBtnCounter = new JLabel("Button Counter: 0");
+		lblBtnCounter.setForeground(Color.WHITE);
+		//
+		GridLayout grid = new GridLayout(4,4,5,5);
 		tastenfeld.setLayout(grid);
 		
 		// Create Buttons
@@ -63,6 +73,9 @@ public class View extends JFrame {
 		button2.addActionListener(getController());
 		button2.setActionCommand(Constants.ABOUT);
 
+		button3.addActionListener(getController());
+		button3.setActionCommand(Constants.VERLAUF);
+
 		// Create Panels
 		panel1 = new JPanel();
 		panel2 = new JPanel();
@@ -72,6 +85,8 @@ public class View extends JFrame {
 		// Add Buttons/TextField to Panels
 		panel1.add(button1);
 		panel1.add(button2);
+		panel1.add(button3);
+		panel1.add(lblBtnCounter);
 		panel2.add(anzeigeFeld);
 		
 		// Add Items to Frame
@@ -81,10 +96,31 @@ public class View extends JFrame {
 		
 		// Create Frame
 		setTitle("Calculator");
-		setSize(800, 600);
+		setSize(450, 400);
 		setLocationByPlatform(true);
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setVisible(true);
+	}
+
+	/**
+	 * Update UI
+	 */
+	public void addPressedButtonToTextfeld(String input) {
+		String tmp = anzeigeFeld.getText();
+		String tmp2 = tmp + input;
+		anzeigeFeld.setText(tmp2);
+	}
+
+	public void clearTextfield() {
+		anzeigeFeld.setText("");
+	}
+
+	public String getTextfield() {
+		return anzeigeFeld.getText();
+	}
+
+	public void setTextfield(String ergebnis) {
+		anzeigeFeld.setText(ergebnis);
 	}
 
 	/**
@@ -110,7 +146,7 @@ public class View extends JFrame {
 	 * Zeige Counter im Textfeld
 	 */
 	public void setCounterToAnzeigeFeld() {
-		anzeigeFeld.setText("Button Counter: " + getModel().getCounter());
+		lblBtnCounter.setText("Button Counter: " + getCounterModel().getCounter());
 		repaint();
 	}
 }
