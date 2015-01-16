@@ -10,7 +10,7 @@ public class About extends JFrame {
 	private CounterModel counterModel;
 
 	/**
-	 * Gtter / Setter
+	 * Getter / Setter
 	 */
 	public CounterModel getCounterModel() {
 		return this.counterModel;

@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by skloppe on 16.01.2015.
+ * Created by flashback2k14 on 16.01.2015.
  */
 public class VerlaufView extends JFrame {
     /**
